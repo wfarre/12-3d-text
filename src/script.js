@@ -31,10 +31,10 @@ const matcapTexture = textureLoader.load("/textures/matcaps/5.png");
 const metalTexture = textureLoader.load("/textures/matcaps/2.png");
 metalTexture.colorSpace = THREE.SRGBColorSpace;
 matcapTexture.colorSpace = THREE.SRGBColorSpace;
-// const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
+const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
 
-const material = new THREE.MeshPhysicalMaterial({ map: matcapTexture });
-const metalMaterial = new THREE.MeshPhysicalMaterial({ map: metalTexture });
+// const material = new THREE.MeshPhysicalMaterial({ map: matcapTexture });
+// const metalMaterial = new THREE.MeshPhysicalMaterial({ map: metalTexture });
 
 material.metalness = 0.6;
 material.roughness = 0.2;
@@ -42,18 +42,18 @@ material.iridescence = 1;
 material.iridescenceIOR = 1;
 material.iridescenceThicknessRange = [100, 800];
 
-metalMaterial.metalness = 0.4;
-metalMaterial.roughness = 0.5;
-metalMaterial.iridescence = 1;
-metalMaterial.iridescenceIOR = 1;
-metalMaterial.iridescenceThicknessRange = [100, 800];
+// metalMaterial.metalness = 0.4;
+// metalMaterial.roughness = 0.5;
+// metalMaterial.iridescence = 1;
+// metalMaterial.iridescenceIOR = 1;
+// metalMaterial.iridescenceThicknessRange = [100, 800];
 
 /**
  * Fonts
  */
 const fontLoader = new FontLoader();
 fontLoader.load("/font/helvetiker_regular.typeface.json", (font) => {
-  const textGeometry = new TextGeometry("Star Donuts", {
+  const textGeometry = new TextGeometry("Space Donuts", {
     font: font,
     size: 0.5,
     depth: 0.2,
@@ -67,7 +67,7 @@ fontLoader.load("/font/helvetiker_regular.typeface.json", (font) => {
 
   textGeometry.center();
 
-  const text = new THREE.Mesh(textGeometry, metalMaterial);
+  const text = new THREE.Mesh(textGeometry, material);
   scene.add(text);
 });
 
