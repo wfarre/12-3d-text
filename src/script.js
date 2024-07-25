@@ -74,13 +74,13 @@ fontLoader.load("/font/helvetiker_regular.typeface.json", (font) => {
 /**
  * Environment map
  */
-const rgbeLoader = new RGBELoader();
-rgbeLoader.load("/stars.hdr", (environmentMap) => {
-  environmentMap.mapping = THREE.EquirectangularReflectionMapping;
-  scene.background = environmentMap;
-  scene.environment = environmentMap;
-  console.log(environmentMap);
-});
+// const rgbeLoader = new RGBELoader();
+// rgbeLoader.load("/stars.hdr", (environmentMap) => {
+//   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
+//   scene.background = environmentMap;
+//   scene.environment = environmentMap;
+//   console.log(environmentMap);
+// });
 
 /**
  * Donuts
@@ -189,21 +189,6 @@ const tick = () => {
     donut.rotation.x = elapsedTime;
     donut.rotation.z = elapsedTime;
   });
-
-  // Update controls
-  controls.update();
-
-  // Render
-  renderer.render(scene, camera);
-
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
-};
-
-const tickInd = (mesh) => {
-  const elapsedTime = clock.getElapsedTime();
-
-  mesh.rotation.y = elapsedTime;
 
   // Update controls
   controls.update();
